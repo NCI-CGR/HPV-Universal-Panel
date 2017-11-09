@@ -2,56 +2,28 @@
 
 
 # 1) This is where the original bam files can be found. (glob)
-raw_path: /CGF/Research//runs/BAMs_for_analysis/*/*bam
+raw_path: /path/to/runs/BAMs_for_analysis/*/*bam
 
 # 2) This is where the **REMAPPED** bam files can be found. (glob)
-tmap_path: tmap/*H*/*bam
+tmap_path: tmap/A*/*bam
 
-# 3) Choose panel type: single, universal, or ffpe.
-panel_type: universal
+# 3) This is name of the deliverable directory.
+deliver_proj: Type_Study_RD###_YearMonthDay
 
-# 4) Set the main type of HPV for these samples.
-hpv_type: 16  # just the number, even if universal panel was used
-
-# 5) Set the cohort prefix. e.g. PAP, IARC, SC
-cohort: None
-
-# 6) This is name of the deliverable directory.
-#deliver_proj: Type_Study_RD###_YearMonthDay
-deliver_proj: HPV_Universal_RD064_20170830
-deliver_dir: /DCEG/Projects/HPV_Consortium
-
-# 7) Update the parser in the Snakemake file to match the raw bam filenames
-# This hasn't changed in a long time, so this step can usually be ignored.
-
-# 8) Update the wrapper.sh script
-
-# 9) Select mapq threshold.
+# 4) Select mapq threshold.
 aq_filter: 4
 
-# 10) Fix titles in coverage_Snakefile for appropriate Type.
-
-# 11) choose minimum read depth for fasta files
+# 5) Choose minimum read depth for fasta files.
 min_read: 4
 
-# 12) choose cutoff for % Ns in the final fasta
+# 6) Choose cutoff for % Ns in the final fasta.
 fasta_n: 75
 
-# 13) choose max # reads for colorbar for coverage clutermap
-cbar_max: 20
-
-# Make sure X forwarding is enabled for ete3 toolkit!!
-# 14) phylo tree params
-ete_wf: none-none-none-fasttree_default
-
-
-#######  Reference Files - Nothing below should be changed between runs!
 
 hpv_reference: /path/to/references/HPV/TMAP_Refs/HPVRef_Alphas65_Pad400_hg19/HPV_Ref_Alphas65_Pad400_hg19.fasta
 amplicon_bed: /path/to/references/HPV/universal_bed/old_HPVRef_13Types_Ref_Mapped_hg19.unmerged-detail_20160414.bed
 len_bed: /path/to/references/HPV/len_bed/hpv_universal.bed
 
-lineage: /path/to/references/HPV/HPV%s/HPV%s_lineages.fasta
 
 # Tools and packages
 
